@@ -167,6 +167,10 @@ header h1 {
     .navbar-collapse.show {
         display: block;
     }
+    
+    h1 {
+        font-size: 24px; /* Adjust the size as needed */
+    }
 }
 
 /* Revert styles for screens wider than 768px */
