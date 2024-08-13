@@ -225,29 +225,29 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', checkVisibility);
 });
 
-// function validateCheckoutTime() {
-//     const checkoutTimeInput = document.getElementById('modalCheckoutTime');
-//     const checkoutTime = checkoutTimeInput.value;
+function validateCheckoutTime() {
+    const checkoutTimeInput = document.getElementById('modalCheckoutTime');
+    const checkoutTime = checkoutTimeInput.value;
 
-//     // Convert checkout time to minutes since midnight for comparison
-//     const [hours, minutes] = checkoutTime.split(':');
-//     const totalMinutes = parseInt(hours) * 60 + parseInt(minutes);
+    // Convert checkout time to minutes since midnight for comparison
+    const [hours, minutes] = checkoutTime.split(':');
+    const totalMinutes = parseInt(hours) * 60 + parseInt(minutes);
 
-//     // 10:00 AM is 600 minutes since midnight
-//     const cutoffTime = 600;
+    // 10:00 AM is 600 minutes since midnight
+    const cutoffTime = 600;
 
-//     if (totalMinutes > cutoffTime) {
-//         // Show the custom Bootstrap modal
-//         $('#alertModal').modal('show');
+    if (totalMinutes > cutoffTime) {
+        // Show the custom Bootstrap modal
+        $('#alertModal').modal('show');
 
-//         // Clear the invalid time after the modal is closed
-//         $('#alertModal').on('hidden.bs.modal', function () {
-//             checkoutTimeInput.value = ''; 
-//         });
-//     }
-// }
+        // Clear the invalid time after the modal is closed
+        $('#alertModal').on('hidden.bs.modal', function () {
+            checkoutTimeInput.value = ''; 
+        });
+    }
+}
 
-// // Add event listener for checkout time change
-// document.getElementById('modalCheckoutTime').addEventListener('change', validateCheckoutTime);
+// Add event listener for checkout time change
+document.getElementById('modalCheckoutTime').addEventListener('change', validateCheckoutTime);
 
 
