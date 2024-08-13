@@ -101,6 +101,7 @@ header h1 {
 }
 
 /* Styles for the Hamburger Menu */
+/* Styles for the Hamburger Menu */
 .navbar-toggler {
     border: none;
     outline: none;
@@ -135,111 +136,8 @@ header h1 {
     top: 8px;
 }
 
-
 /* Responsive styles for mobile view */
 @media (max-width: 768px) {
-    /* Header */
-    header .d-flex {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    header h1 {
-        font-size: 1.8rem;
-        margin: 10px 0;
-    }
-
-    /* Navigation */
-    nav ul.nav {
-        flex-direction: column;
-        align-items: center;
-        margin-top: 10px;
-    }
-
-    nav ul.nav li {
-        margin-bottom: 10px;
-    }
-
-    /* Hero Section */
-    .hero h2 {
-        font-size: 2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-        padding: 0 10px;
-    }
-
-    /* Listings Section */
-    .container.my-3 {
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    /* About Section */
-    #about h2 {
-        font-size: 1.5rem;
-    }
-
-    #about p, #about ul li p {
-        font-size: 1rem;
-        padding: 0 10px;
-    }
-
-    #about ul li h5 {
-        font-size: 1.2rem;
-    }
-
-    /* Contact Form */
-    #contact-form .form-group {
-        margin-bottom: 15px;
-    }
-
-    #contact-form .btn {
-        width: 100%;
-    }
-
-    /* Footer */
-    footer {
-        padding: 10px;
-    }
-
-    footer h5 {
-        font-size: 1.2rem;
-    }
-
-    footer p {
-        font-size: 0.9rem;
-    }
-
-    /* Booking and Details Modals */
-    .modal-dialog {
-        margin: 10px;
-    }
-
-    .modal-header h5 {
-        font-size: 1.2rem;
-    }
-
-    .modal-body p, .modal-body label {
-        font-size: 0.9rem;
-    }
-
-    .modal-footer button {
-        width: 100%;
-    }
-
-    /* Reduce padding in sections */
-    section {
-        padding: 20px 10px;
-    }
-
-    /* Carousel for listing images */
-    .carousel-inner img {
-        width: 100%;
-        height: auto;
-    }
-
     .collapse.navbar-collapse {
         background-color: #343a40; /* Dark background for the dropdown menu */
         padding: 10px;
@@ -271,6 +169,7 @@ header h1 {
     }
 }
 
+/* Revert styles for screens wider than 768px */
 @media (min-width: 769px) {
     .navbar-collapse {
         display: flex !important; /* Ensure the nav items are displayed inline */
