@@ -167,10 +167,9 @@ header h1 {
     .navbar-collapse.show {
         display: block;
     }
-}
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 20px; /* Adjust the size as needed */
+
+    h2 {
+        font-size: 24px; /* Adjust the size as needed */
     }
 }
 
