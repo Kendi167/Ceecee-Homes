@@ -110,6 +110,7 @@ header h1 {
 .navbar-toggler {
     border: none;
     outline: none;
+    margin-left: auto; /* Align the hamburger menu to the right */
 }
 
 .navbar-toggler-icon {
@@ -139,6 +140,7 @@ header h1 {
 .navbar-toggler-icon::after {
     top: 8px;
 }
+
 
 /* Responsive styles for mobile view */
 /* @media (max-width: 768px) {
