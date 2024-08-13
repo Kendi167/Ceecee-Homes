@@ -168,8 +168,8 @@ header h1 {
         display: block;
     }
 
-    h2 {
-        font-size: 24px; /* Adjust the size as needed */
+    .hero h2 {
+        font-size: 20px; /* Adjust the size as needed */
     }
 }
 
