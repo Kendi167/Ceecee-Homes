@@ -80,12 +80,6 @@ header h1 {
     }
 }
 
-/* @media (max-width: 768px) {
-    .card {
-        margin-bottom: 1rem;
-    }
-} */
-
 /* Fade-in effect */
 .text-fade-in {
     opacity: 0; /* Initially hidden */
@@ -141,39 +135,6 @@ header h1 {
     top: 8px;
 }
 
-
-/* Responsive styles for mobile view */
-/* @media (max-width: 768px) {
-    .collapse.navbar-collapse {
-        background-color: #343a40;
-        padding: 10px;
-        border-radius: 5px;
-    }
-
-    .nav-item {
-        margin-bottom: 10px;
-    }
-
-    .navbar-collapse {
-        display: none;
-    }
-
-    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-        transform: rotate(45deg);
-    }
-
-    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
-        transform: rotate(90deg) translateX(-8px);
-    }
-
-    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
-        transform: rotate(90deg) translateX(8px);
-    }
-
-    .navbar-collapse.show {
-        display: block;
-    }
-} */
 
 /* Responsive styles for mobile view */
 @media (max-width: 768px) {
@@ -307,5 +268,19 @@ header h1 {
 
     .navbar-collapse.show {
         display: block;
+    }
+}
+
+@media (min-width: 769px) {
+    .navbar-collapse {
+        display: flex !important; /* Ensure the nav items are displayed inline */
+    }
+
+    .navbar-toggler {
+        display: none; /* Hide the hamburger button */
+    }
+
+    .nav-item {
+        margin-bottom: 0; /* Reset margin */
     }
 }
