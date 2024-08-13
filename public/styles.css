@@ -18,6 +18,10 @@ header h1 {
     font-size: 2rem;
 }
 
+.gold-text {
+    color: gold;
+}
+
 /* Card Styles */
 .card {
     border: 1px solid #ddd; /* Light border */
