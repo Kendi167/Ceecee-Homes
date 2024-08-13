@@ -1,0 +1,108 @@
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Light gray background */
+    color: #343a40; /* Dark gray text */
+}
+
+/* Header Styles */
+header {
+    background-color: #FFD700; /* Bootstrap primary color */
+    color: #ffffff;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* Card Styles */
+.card {
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 0.25rem; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Modal Styles */
+.modal-content {
+    border-radius: 0.25rem; /* Rounded corners */
+}
+
+.modal-header {
+    background-color: #000000; /* Bootstrap primary color */
+    color: #FFD700;
+    border-bottom: 1px solid #ddd; /* Light border */
+}
+
+.modal-title {
+    margin: auto;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-footer {
+    border-top: 1px solid #ddd; /* Light border */
+}
+
+/* Form Styles */
+.form-control {
+    border-radius: 0.25rem; /* Rounded corners */
+    border-color: #ced4da; /* Light gray border */
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.btn-primary {
+    background-color: #FFD700; /* Bootstrap primary color */
+    border-color: #FFD700;
+}
+
+.btn-primary:hover {
+    background-color: #917d24; /* Darker shade for hover */
+    border-color: #FFD700;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+    .card-img-top {
+        height: 150px; /* Adjust image height for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Fade-in effect */
+.text-fade-in {
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1s ease-in-out; /* Smooth transition */
+}
+
+.text-fade-in.show {
+    opacity: 1; /* Visible when class 'show' is added */
+}
+
+/* Ensure smooth scaling for listings */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Enlarge by 5% */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for depth effect */
+}
+
