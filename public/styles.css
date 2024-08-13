@@ -106,6 +106,73 @@ header h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for depth effect */
 }
 
+/* Styles for the Hamburger Menu */
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler-icon {
+    width: 30px;
+    height: 2px;
+    background-color: #FFD700; /* Gold color for the hamburger lines */
+    display: block;
+    position: relative;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: '';
+    width: 30px;
+    height: 2px;
+    background-color: #FFD700; /* Gold color for the hamburger lines */
+    display: block;
+    position: absolute;
+    left: 0;
+    transition: transform 0.3s ease;
+}
+
+.navbar-toggler-icon::before {
+    top: -8px;
+}
+
+.navbar-toggler-icon::after {
+    top: 8px;
+}
+
+/* Responsive styles for mobile view */
+/* @media (max-width: 768px) {
+    .collapse.navbar-collapse {
+        background-color: #343a40;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .nav-item {
+        margin-bottom: 10px;
+    }
+
+    .navbar-collapse {
+        display: none;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+        transform: rotate(45deg);
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+        transform: rotate(90deg) translateX(-8px);
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+        transform: rotate(90deg) translateX(8px);
+    }
+
+    .navbar-collapse.show {
+        display: block;
+    }
+} */
+
 /* Responsive styles for mobile view */
 @media (max-width: 768px) {
     /* Header */
@@ -208,5 +275,35 @@ header h1 {
     .carousel-inner img {
         width: 100%;
         height: auto;
+    }
+
+    .collapse.navbar-collapse {
+        background-color: #343a40; /* Dark background for the dropdown menu */
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .nav-item {
+        margin-bottom: 10px;
+    }
+
+    .navbar-collapse {
+        display: none;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+        transform: rotate(45deg);
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+        transform: rotate(90deg) translateX(-8px);
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+        transform: rotate(90deg) translateX(8px);
+    }
+
+    .navbar-collapse.show {
+        display: block;
     }
 }
