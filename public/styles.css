@@ -22,6 +22,18 @@ header h1 {
     color: gold;
 }
 
+.row {
+    display: flex;
+    justify-content: space-evenly; /* Distributes items evenly */
+    align-items: center; /* Aligns items vertically */
+}
+
+.listing {
+    flex: 1; /* Ensures equal width for each listing */
+    text-align: center; /* Centers content within each listing */
+    padding: 20px; /* Adds spacing between content and edges */
+    border: 1px solid #ccc; /* Optional: Adds borders for clarity */
+}
 /* Card Styles */
 .card {
     border: 1px solid #ddd; /* Light border */
