@@ -22,6 +22,9 @@ header h1 {
     color: gold;
 }
 
+.row {
+    padding: 2px 16px;
+}
 /* Card Styles */
 .card {
     border: 1px solid #ddd; /* Light border */
