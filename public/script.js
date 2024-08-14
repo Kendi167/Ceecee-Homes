@@ -12,12 +12,12 @@ const listingsData = [
         description: 'A peaceful retreat with ocean views.',
         price: '$200/night'
     },
-    {
-        name: 'Studio Apartment',
-        images: ['images/images (1).jpg', 'images/images (1).jpg'],
-        description: 'A peaceful retreat with ocean views.',
-        price: '$200/night'
-    }
+    // {
+    //     name: 'Studio Apartment',
+    //     images: ['images/images (1).jpg', 'images/images (1).jpg'],
+    //     description: 'A peaceful retreat with ocean views.',
+    //     price: '$200/night'
+    // }
 ];
 
 // Function to render listings
