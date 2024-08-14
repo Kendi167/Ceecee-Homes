@@ -31,7 +31,8 @@ header h1 {
 .listing {
     flex: 1; 
     text-align: center; 
-    padding: 20px; 
+    gap: 20px;
+
 
 }
 /* Card Styles */
