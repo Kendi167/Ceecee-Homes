@@ -18,6 +18,10 @@ header h1 {
     font-size: 2rem;
 }
 
+.bingo {
+height: 300px;
+}
+
 .gold-text {
     color: gold;
 }

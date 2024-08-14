@@ -39,7 +39,7 @@ app.post('/book', (req, res) => {
     // Email content for the client (you)
     const clientMailOptions = {
         from: process.env.EMAIL_USER,
-        to: 'lindakendi167@gmail.com',
+        to: 'theeron13@gmail.com',
         subject: 'New Booking Received',
         text: `New booking received:\n\nGuest: ${userName}\nEmail: ${userEmail}\nB&B: ${bnbName}\nCheck-in: ${checkinDate}\nCheck-out: ${checkoutDate}`
     };
