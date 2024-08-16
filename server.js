@@ -1,48 +1,69 @@
 require('dotenv').config();
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const twilio = require('twilio');
 
-// Twilio credentials from environment variables
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const client = twilio(accountSid, authToken);
+const express = require('express');
+const cors = require('cors');
+const nodemailer = require('nodemailer');
+const bodyParser = require('body-parser');
 
 const app = express();
+const port = 3000;
 
-// Middleware setup
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static('public'));
 app.use(cors());
 
-// Endpoint to handle booking submission
+
+
+// Configure Nodemailer transporter
+const transporter = nodemailer.createTransport({
+    service: 'Gmail', // You can use any email service
+    auth: {
+        user: process.env.EMAIL_USER, // Your email
+        pass: process.env.EMAIL_PASS  // Your email password
+    }
+});
+
+// Endpoint to handle booking and send emails
 app.post('/book', (req, res) => {
-    const bookingData = req.body;
+    const { userName, userEmail, bnbName, checkinDate, checkoutDate } = req.body;
 
-    // Extract the necessary information
-    const { userName, userPhone, bnbName, checkinDate, checkoutDate, numPeople } = bookingData;
+    // Email content for the user
+    const userMailOptions = {
+        from: process.env.EMAIL_USER,
+        to: userEmail,
+        subject: 'Booking Confirmation',
+        text: `Dear ${userName},\n\nThank you for booking ${bnbName} from ${checkinDate} to ${checkoutDate}.\n\nWe look forward to hosting you!\n\nBest regards,\nYour B&B Team`
+    };
 
-    // Format the SMS message
-    const messageBody = `Hello ${userName}, your booking for ${bnbName} from ${checkinDate} to ${checkoutDate} for ${numPeople} people has been confirmed.`;
+    // Email content for the client (you)
+    const clientMailOptions = {
+        from: process.env.EMAIL_USER,
+        to: 'theeron13@gmail.com',
+        subject: 'New Booking Received',
+        text: `New booking received:\n\nGuest: ${userName}\nEmail: ${userEmail}\nB&B: ${bnbName}\nCheck-in: ${checkinDate}\nCheck-out: ${checkoutDate}`
+    };
 
-    // Send SMS using Twilio
-    client.messages.create({
-        body: messageBody,
-        from: process.env.TWILIO_PHONE_NUMBER, // Your Twilio phone number
-        to: userPhone // User's phone number from the form
-    })
-    .then(message => {
-        console.log(`SMS sent with SID: ${message.sid}`);
-        res.json({ message: 'Booking confirmed and SMS sent successfully!' });
-    })
-    .catch(error => {
-        console.error('Error sending SMS:', error);
-        res.status(500).json({ message: 'An error occurred while sending the SMS.' });
+    // Send email to user
+    transporter.sendMail(userMailOptions, (error, info) => {
+        if (error) {
+            return res.status(500).json({ error: 'Error sending email to user' });
+        }
+        console.log('User email sent: ' + info.response);
+
+        // Send email to client (you)
+        transporter.sendMail(clientMailOptions, (error, info) => {
+            if (error) {
+                return res.status(500).json({ error: 'Error sending email to client' });
+            }
+            console.log('Client email sent: ' + info.response);
+
+            // Respond to the frontend
+            res.status(200).json({ message: 'Booking confirmed, emails sent.' });
+        });
     });
 });
 
-// Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+app.listen(port, () => {
+    console.log(`Server running on http://localhost:${port}`);
 });

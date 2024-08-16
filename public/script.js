@@ -134,9 +134,7 @@ function submitBooking() {
         userEmail: document.getElementById('modalUserEmail').value,
         bnbName: document.getElementById('modalBnbName').value,
         checkinDate: document.getElementById('modalCheckinDate').value,
-        checkinTime: document.getElementById('modalCheckinTime').value,
         checkoutDate: document.getElementById('modalCheckoutDate').value,
-        checkoutTime: document.getElementById('modalCheckoutTime').value,
         numPeople: document.getElementById('modalNumPeople').value,
     };
 
