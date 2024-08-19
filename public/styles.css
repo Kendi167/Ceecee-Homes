@@ -22,19 +22,6 @@ header h1 {
     color: gold;
 }
 
-.row {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center; 
-}
-
-.listing {
-    flex: 1; 
-    text-align: center; 
-    gap: 20px;
-
-
-}
 /* Card Styles */
 .card {
     border: 1px solid #ddd; /* Light border */
