@@ -5,17 +5,17 @@ const listingsData = [
         images: ['images/1(37).jpg', 'images/1(48).jpg'],
         description: [
             'Spacious living room with modern decor',
-            'Fully equipped kitchen with modern appliances',
-            'Three large bedrooms with king-size beds',
-            'Two full bathrooms with luxury fittings',
-            'Private balcony with stunning city views',
-            'Free Wi-Fi and cable TV',
-            'Access to a swimming pool and gym',
-            'Rooftop sky view terrace',
-            'Swimming pool and sunbathing area',
-            'Children play zone',
-            'Fully equipped modern gym',
-            'Standby generator'
+            'Fully equipped kitchen with modern appliances'
+            // 'Three large bedrooms with king-size beds',
+            // 'Two full bathrooms with luxury fittings',
+            // 'Private balcony with stunning city views',
+            // 'Free Wi-Fi and cable TV',
+            // 'Access to a swimming pool and gym',
+            // 'Rooftop sky view terrace',
+            // 'Swimming pool and sunbathing area',
+            // 'Children play zone',
+            // 'Fully equipped modern gym',
+            // 'Standby generator'
 
         ],
         price: '$120/night'
