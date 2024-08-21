@@ -2,7 +2,7 @@
 const listingsData = [
     {
         name: '3 Bedroon Apartment',
-        images: ['images/download.jpg', 'images/images (1).jpg'],
+        images: ['images/1(37).jpg', 'images/1(48).jpg'],
         description: 'A charming cottage with beautiful gardens.',
         price: '$120/night'
     },
