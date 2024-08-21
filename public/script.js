@@ -1,7 +1,7 @@
 // Sample data for B&B listings
 const listingsData = [
     {
-        name: '3 Bedroon Apartment',
+        name: 'Spacious 3 Bedroon Apartment',
         images: ['images/1(37).jpg', 'images/1(48).jpg'],
         description: 'Spacious living room with modern decor',
         price: '$120/night'
