@@ -3,7 +3,21 @@ const listingsData = [
     {
         name: '3 Bedroon Apartment',
         images: ['images/1(37).jpg', 'images/1(48).jpg'],
-        description: 'A charming cottage with beautiful gardens.',
+        description: [
+            'Spacious living room with modern decor',
+            'Fully equipped kitchen with modern appliances',
+            'Three large bedrooms with king-size beds',
+            'Two full bathrooms with luxury fittings',
+            'Private balcony with stunning city views',
+            'Free Wi-Fi and cable TV',
+            'Access to a swimming pool and gym',
+            'Rooftop sky view terrace',
+            'Swimming pool and sunbathing area',
+            'Children play zone',
+            'Fully equipped modern gym',
+            'Standby generator'
+
+        ],
         price: '$120/night'
     },
     {
@@ -20,6 +34,30 @@ const listingsData = [
     }
 ];
 
+function populateModal(listing) {
+    // Populate the carousel
+    const carouselInner = document.getElementById('carouselInner');
+    carouselInner.innerHTML = ''; // Clear existing content
+    listing.images.forEach((image, index) => {
+        const activeClass = index === 0 ? 'active' : '';
+        const carouselItem = `
+            <div class="carousel-item ${activeClass}">
+                <img src="${image}" class="d-block w-100" alt="Listing Image ${index + 1}">
+            </div>`;
+        carouselInner.insertAdjacentHTML('beforeend', carouselItem);
+    });
+
+    // Populate the description as a list
+    const modalDescription = document.getElementById('modalDescription');
+    modalDescription.innerHTML = '<ul>' + listing.description.map(item => `<li>${item}</li>`).join('') + '</ul>';
+
+    // Set the price
+    const modalPrice = document.getElementById('modalPrice');
+    modalPrice.textContent = listing.price;
+}
+
+// Example usage: populate modal when needed
+populateModal(listing);
 // Function to render listings
 function renderListings() {
     const listingsContainer = document.getElementById('listings');
