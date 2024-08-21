@@ -78,6 +78,11 @@ header h1 {
     border-color: #FFD700;
 }
 
+#map {
+    height: 300px;
+    width: 100%;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 576px) {
     .card-img-top {

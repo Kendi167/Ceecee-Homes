@@ -4,7 +4,8 @@ const listingsData = [
         name: 'Spacious 3 Bedroon Apartment',
         images: ['images/1(37).jpg', 'images/1(48).jpg'],
         description: 'Spacious living room with modern decor',
-        price: '$120/night'
+        price: '$120/night',
+        location: { lat: -1.2921, lng: 36.8219 }
     },
     {
         name: '2 Bedroon Apartment',
@@ -19,6 +20,21 @@ const listingsData = [
         price: '$200/night'
     }
 ];
+
+function initMap() {
+    // Create a map centered at the listing's location
+    const map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 14,
+        center: listing.location
+    });
+
+    // Place a marker at the listing's location
+    const marker = new google.maps.Marker({
+        position: listing.location,
+        map: map,
+        title: listing.name
+    });
+}
 
 
 // Function to render listings
