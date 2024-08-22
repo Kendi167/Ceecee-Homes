@@ -72,6 +72,10 @@ header h1 {
     background-color: #FFD700; /* Bootstrap primary color */
     border-color: #FFD700;
 }
+.btn-close {
+    background-color: #FFD700; /* Bootstrap primary color */
+    border-color: #FFD700;
+}
 
 .btn-primary:hover {
     background-color: #917d24; /* Darker shade for hover */
