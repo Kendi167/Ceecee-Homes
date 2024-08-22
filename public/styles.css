@@ -41,7 +41,7 @@ header h1 {
 }
 
 .modal-header {
-    background-color: #000000; /* Bootstrap primary color */
+    background-color: #ffffff; /* Bootstrap primary color */
     color: #FFD700;
     border-bottom: 1px solid #ddd; /* Light border */
 }
