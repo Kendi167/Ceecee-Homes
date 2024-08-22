@@ -109,7 +109,7 @@
     
     
 
-    <div class="container my-3 d-flex bg-dark justify-content-center text-fade-in">
+    <div class="container m-3 d-flex bg-dark justify-content-center text-fade-in">
         <div class="row" id="listings">
             <!-- Listings will be injected here by script.js -->
         </div>
@@ -301,7 +301,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <!-- <div class="modal-body">
                     <div id="detailsCarousel" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner" id="carouselInner"></div>
                         <a class="carousel-control-prev" href="#detailsCarousel" role="button" data-slide="prev">
@@ -317,12 +317,105 @@
                     <p id="modalPrice"></p>
                 </div>
 
-                <!-- Map -->
-                <div id="map"></div>
-                
+                Map
+                <div id="map"></div>-->
+                <div class="modal-body container py-4">
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <img src="images/1(28).jpg" class="img-fluid gallery-img" alt="Main Image">
+                        </div>
+                        <div class="col-6">
+                            <img src="images/1(48).jpg" class="img-fluid gallery-img" alt="Image 2">
+                        </div>
+                        <div class="col-4">
+                            <img src="images/1(61).jpg" class="img-fluid gallery-img" alt="Image 3">
+                        </div>
+                        <div class="col-4">
+                            <img src="images/1(64).jpg" class="img-fluid gallery-img" alt="Image 4">
+                        </div>
+                        <div class="col-4 gallery-col-2">
+                            <img src="images/1(74).jpg" class="img-fluid gallery-img" alt="Image 5">
+                            <div class="more-photos" data-bs-toggle="modal" data-bs-target="#galleryModal">
+                                +9 photos
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" id="bookNowButton">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="galleryModalLabel">View Apartment</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-2">
+                        <!-- Additional photos go here -->
+                        <div class="col-4">
+                            <img src="images/1(20).jpg" class="img-fluid gallery-img" alt="Image 6">
+                        </div>
+                        <div class="col-4">
+                            <img src="images/1(14).jpg" class="img-fluid gallery-img" alt="Image 7">
+                        </div>
+                        <div class="col-4">
+                            <img src="images/1(18).jpg" class="img-fluid gallery-img" alt="Image 8">
+                        </div>
+                        <div class="col-4">
+                            <img src="images/1(30).jpg" class="img-fluid gallery-img" alt="Image 8">
+                        </div>
+                        <div class="col-4">
+                            <img src="images/1(71).jpg" class="img-fluid gallery-img" alt="Image 8">
+                        </div>
+                        <div class="col-4">
+                            <img src="images/1(73).jpg" class="img-fluid gallery-img" alt="Image 8">
+                        </div>
+                        <div class="col-4">
+                            <img src="images/1(86).jpg" class="img-fluid gallery-img" alt="Image 8">
+                        </div>
+                        <div class="col-4">
+                            <img src="images/1(92).jpg" class="img-fluid gallery-img" alt="Image 8">
+                        </div>
+                        <div class="col-4">
+                            <img src="images/1(93).jpg" class="img-fluid gallery-img" alt="Image 8">
+                        </div>
+                        <div class="col-4">
+                            <img src="images/1(109).jpg" class="img-fluid gallery-img" alt="Image 8">
+                        </div>
+                        <div class="col-4">
+                            <img src="images/1(112).jpg" class="img-fluid gallery-img" alt="Image 8">
+                        </div>
+                        <div class="col-4">
+                            <img src="images/1(129).jpg" class="img-fluid gallery-img" alt="Image 8">
+                        </div>
+                        <div class="col-4">
+                            <img src="images/1(130).jpg" class="img-fluid gallery-img" alt="Image 8">
+                        </div>
+                        <div class="col-4">
+                            <img src="images/1(131).jpg" class="img-fluid gallery-img" alt="Image 8">
+                        </div>
+                        <div class="col-4">
+                            <img src="images/1(133).jpg" class="img-fluid gallery-img" alt="Image 8">
+                        </div>
+                        <div class="col-4">
+                            <img src="images/1(138).jpg" class="img-fluid gallery-img" alt="Image 8">
+                        </div>
+                        <div class="col-4">
+                            <img src="images/1(87).jpg" class="img-fluid gallery-img" alt="Image 8">
+                        </div>
+                        <div class="col-4">
+                            <img src="images/1(37).jpg" class="img-fluid gallery-img" alt="Image 8">
+                        </div>
+                        <!-- Add more images as needed -->
+                    </div>
                 </div>
             </div>
         </div>
