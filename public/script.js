@@ -1,50 +1,47 @@
 // Sample data for B&B listings
 const listingsData = [
     {
-        name: ['Spacious 3 Bedroon Apartment',
-            
-        ],
-        images: ['images/1(37).jpg', 'images/1(48).jpg'],
+        name: 'Spacious 3 Bedroom Apartment',
+        images: ['images/1(37).jpg', 'images/1(48).jpg', 'images/1(61).jpg', 'images/1(64).jpg', 'images/1(74).jpg'],
         description: 'Spacious living room with modern decor',
         price: '$120/night',
         location: { lat: -1.2921, lng: 36.8219 }
     },
     {
-        name: '2 Bedroon Apartment',
-        images: ['images/images (1).jpg', 'images/images (1).jpg'],
+        name: '2 Bedroom Apartment',
+        images: ['images/images(1).jpg', 'images/images(2).jpg'],
         description: 'A peaceful retreat with ocean views.',
         price: '$200/night'
     },
     {
         name: 'Studio Apartment',
-        images: ['images/images (1).jpg', 'images/images (1).jpg'],
-        description: 'A peaceful retreat with ocean views.',
-        price: '$200/night'
+        images: ['images/images(3).jpg', 'images/images(4).jpg'],
+        description: 'Cozy and affordable studio in the city center.',
+        price: '$80/night'
     }
 ];
 
 function initMap() {
-    // Create a map centered at the listing's location
+    // Create a map centered at the first listing's location
     const map = new google.maps.Map(document.getElementById('map'), {
         zoom: 14,
-        center: listing.location
+        center: listingsData[0].location
     });
 
-    // Place a marker at the listing's location
+    // Place a marker at the first listing's location
     const marker = new google.maps.Marker({
-        position: listing.location,
+        position: listingsData[0].location,
         map: map,
-        title: listing.name
+        title: listingsData[0].name
     });
 }
-
 
 // Function to render listings
 function renderListings() {
     const listingsContainer = document.getElementById('listings');
     listingsContainer.innerHTML = ''; // Clear existing listings
 
-    listingsData.slice(0, 3).forEach((listing, index) => {
+    listingsData.forEach((listing, index) => {
         const listingElement = document.createElement('div');
         listingElement.className = 'col-md-4 mb-4';
         listingElement.innerHTML = `
@@ -64,19 +61,28 @@ function renderListings() {
 function showDetails(index) {
     const selectedListing = listingsData[index];
     document.getElementById('detailsModalLabel').textContent = selectedListing.name;
-    document.getElementById('modalDescription').textContent = selectedListing.description;
-    document.getElementById('modalPrice').textContent = selectedListing.price;
 
-    // Set up carousel images
-    const carouselInner = document.getElementById('carouselInner');
-    carouselInner.innerHTML = ''; // Clear existing carousel items
-
+    // Update the images in the details modal
+    const modalImages = document.querySelectorAll('#detailsModal .gallery-img');
     selectedListing.images.forEach((image, idx) => {
-        const carouselItem = document.createElement('div');
-        carouselItem.className = 'carousel-item' + (idx === 0 ? ' active' : '');
-        carouselItem.innerHTML = `<img src="${image}" class="d-block w-100" alt="${selectedListing.name}">`;
-        carouselInner.appendChild(carouselItem);
+        if (modalImages[idx]) {
+            modalImages[idx].src = image;
+            modalImages[idx].alt = selectedListing.name;
+        }
     });
+
+    // Handle the "+9 photos" button functionality
+    document.querySelector('.more-photos').onclick = function() {
+        // Populate the gallery modal with additional photos
+        const galleryImages = document.querySelectorAll('#galleryModal .gallery-img');
+        selectedListing.images.forEach((image, idx) => {
+            if (galleryImages[idx]) {
+                galleryImages[idx].src = image;
+                galleryImages[idx].alt = selectedListing.name;
+            }
+        });
+        $('#galleryModal').modal('show');
+    };
 
     // Set the "Book Now" button to open the booking modal with the B&B name
     document.getElementById('bookNowButton').onclick = function() {
@@ -85,7 +91,6 @@ function showDetails(index) {
 
     // Show the details modal
     $('#detailsModal').modal('show');
-
 }
 
 // Function to display the booking form modal
@@ -105,7 +110,6 @@ function showBookingForm(index) {
     // Hide the details modal and show the booking modal
     $('#detailsModal').modal('hide');
     $('#bookingModal').modal('show');
-
 }
 
 function calculateTotalCost() {
@@ -128,24 +132,6 @@ document.getElementById('modalCheckoutDate').addEventListener('change', calculat
 
 // Function to handle booking form submission
 function submitBooking() {
-    // const checkinDate = new Date(document.getElementById('modalCheckinDate').value);
-    // const checkoutDate = new Date(document.getElementById('modalCheckoutDate').value);
-    // const checkoutTime = document.getElementById('modalCheckoutTime').value;
-
-    // // Parse the checkout time to compare with 10:00 AM
-    // const [checkoutHours, checkoutMinutes] = checkoutTime.split(':').map(Number);
-
-    // // Check if checkout date is the same as check-in date and validate time
-    // if (
-    //     checkoutDate.getDate() === checkinDate.getDate() &&
-    //     checkoutDate.getMonth() === checkinDate.getMonth() &&
-    //     checkoutDate.getFullYear() === checkinDate.getFullYear()
-    // ) {
-    //     if (checkoutHours > 10 || (checkoutHours === 10 && checkoutMinutes > 0)) {
-    //         $('#alertModal').modal('show');
-    //         return; // Stop the booking process
-    //     }
-    // }
     const bookingData = {
         userName: document.getElementById('modalUserName').value,
         userId: document.getElementById('modalUserId').value,
@@ -184,39 +170,12 @@ function submitBooking() {
     });
 }
 
-
 // Call the function to render listings when the DOM content is loaded
 document.addEventListener('DOMContentLoaded', function () {
     renderListings();
 });
 
-// script.js
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Function to handle adding visible class
-    function handleIntersection(entries, observer) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Stop observing once the element is visible
-            }
-        });
-    }
-
-    // Create an intersection observer
-    const observer = new IntersectionObserver(handleIntersection, {
-        threshold: 0.1 // Trigger when 10% of the element is visible
-    });
-
-    // Select all elements with the class 'text-fade-in'
-    const elements = document.querySelectorAll('.text-fade-in');
-    elements.forEach(element => {
-        observer.observe(element);
-    });
-});
-
-
-
+// Intersection Observer for text fade-in effect
 document.addEventListener('DOMContentLoaded', function () {
     const fadeElements = document.querySelectorAll('.text-fade-in');
 
@@ -266,5 +225,4 @@ function validateCheckoutTime() {
 
 // Add event listener for checkout time change
 document.getElementById('modalCheckoutTime').addEventListener('change', validateCheckoutTime);
-
 
