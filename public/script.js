@@ -83,6 +83,11 @@ function showDetails(index) {
         featuresList.appendChild(listItem);
     });
 
+    // Show the details modal
+    $('#detailsModal').modal('show');
+
+
+
     // Handle the "+9 photos" button functionality
     document.querySelector('.more-photos').onclick = function() {
         // Populate the gallery modal with additional photos
