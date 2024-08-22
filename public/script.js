@@ -49,6 +49,7 @@ function renderListings() {
                 <img src="${listing.images[0]}" class="card-img-top" alt="${listing.name}">
                 <div class="card-body">
                     <h5 class="card-title">${listing.name}</h5>
+                    <p class="card-title">${listing.description}</p>
                     <button type="button" class="btn btn-primary" onclick="showDetails(${index})">View Details</button>
                 </div>
             </div>
