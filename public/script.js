@@ -4,9 +4,8 @@ const listingsData = [
         name: 'Spacious 3 Bedroom Apartment',
         images: ['images/1(37).jpg', 'images/1(48).jpg', 'images/1(61).jpg', 'images/1(64).jpg', 'images/1(74).jpg'],
         description: 'Spacious living room with modern decor',
-        price: '$120/night',
-        features: ['Free Wi-Fi', 'Air Conditioning', 'Swimming Pool', '24-hour Check-in', 'Kitchen', 'Breakfast Included', 'Gym Access', 'Parking Available', 'Standby generator', 'fully equiped kitchen', '2 bathrooms', 'Two high speed lifts'
-        ]
+        price: '$120/night'
+       
     },
     {
         name: '2 Bedroom Apartment',
@@ -72,21 +71,6 @@ function showDetails(index) {
             modalImages[idx].alt = selectedListing.name;
         }
     });
-
-    // Populate features list
-    const featuresList = document.querySelector('#detailsModal .two-column-list');
-    featuresList.innerHTML = ''; // Clear existing features
-
-    selectedListing.features.forEach(feature => {
-        const listItem = document.createElement('li');
-        listItem.textContent = feature;
-        featuresList.appendChild(listItem);
-    });
-
-    // Show the details modal
-    $('#detailsModal').modal('show');
-
-
 
     // Handle the "+9 photos" button functionality
     document.querySelector('.more-photos').onclick = function() {
