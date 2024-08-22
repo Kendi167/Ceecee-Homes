@@ -5,7 +5,8 @@ const listingsData = [
         images: ['images/1(37).jpg', 'images/1(48).jpg', 'images/1(61).jpg', 'images/1(64).jpg', 'images/1(74).jpg'],
         description: 'Spacious living room with modern decor',
         price: '$120/night',
-        location: { lat: -1.2921, lng: 36.8219 }
+        features: ['Free Wi-Fi', 'Air Conditioning', 'Swimming Pool', '24-hour Check-in', 'Kitchen', 'Breakfast Included', 'Gym Access', 'Parking Available', 'Standby generator', 'fully equiped kitchen', '2 bathrooms', 'Two high speed lifts'
+        ]
     },
     {
         name: '2 Bedroom Apartment',
@@ -70,6 +71,16 @@ function showDetails(index) {
             modalImages[idx].src = image;
             modalImages[idx].alt = selectedListing.name;
         }
+    });
+
+    // Populate features list
+    const featuresList = document.querySelector('#detailsModal .two-column-list');
+    featuresList.innerHTML = ''; // Clear existing features
+
+    selectedListing.features.forEach(feature => {
+        const listItem = document.createElement('li');
+        listItem.textContent = feature;
+        featuresList.appendChild(listItem);
     });
 
     // Handle the "+9 photos" button functionality
