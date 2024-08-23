@@ -35,45 +35,6 @@ function calculateTotalCost() {
 document.getElementById('modalCheckinDate').addEventListener('change', calculateTotalCost);
 document.getElementById('modalCheckoutDate').addEventListener('change', calculateTotalCost);
 
-// Function to handle booking form submission
-function submitBooking() {
-    const bookingData = {
-        userName: document.getElementById('modalUserName').value,
-        userId: document.getElementById('modalUserId').value,
-        userPhone: document.getElementById('modalUserPhone').value,
-        userEmail: document.getElementById('modalUserEmail').value,
-        bnbName: document.getElementById('modalBnbName').value,
-        checkinDate: document.getElementById('modalCheckinDate').value,
-        checkoutDate: document.getElementById('modalCheckoutDate').value,
-        numPeople: document.getElementById('modalNumPeople').value,
-    };
-
-    fetch('http://localhost:3000/book', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(bookingData)
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Show the alert modal for success or error
-        $('#alertModal').modal('show');
-        document.getElementById('alertModalLabel').textContent = 'Booking Status';
-        document.getElementById('alertModal .modal-body').textContent = data.message;
-
-        // Close the booking modal
-        $('#bookingModal').modal('hide');
-    })
-    .catch(error => {
-        // Show the alert modal for the error
-        $('#alertModal').modal('show');
-        document.getElementById('alertModalLabel').textContent = 'Error';
-        document.getElementById('alertModal .modal-body').textContent = 'An error occurred. Please try again later.';
-
-        console.error('Error:', error);
-    });
-}
 
 // Call the function to render listings when the DOM content is loaded
 document.addEventListener('DOMContentLoaded', function () {
@@ -106,15 +67,4 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', checkVisibility);
 });
 
-
-$(document).ready(function() {
- $('.gallery-img').on('click', function() {
-     var src = $(this).attr('src');
-        $('#modalImage').attr('src', src);
-     });
-});
-
-
-// Add event listener for checkout time change
-document.getElementById('modalCheckoutTime').addEventListener('change', validateCheckoutTime);
 
