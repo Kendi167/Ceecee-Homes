@@ -1,101 +1,3 @@
-// Sample data for B&B listings
-// const listingsData = [
-//     {
-//         name: 'Spacious 3 Bedroom Apartment',
-//         images: ['images/1(37).jpg', 'images/1(48).jpg', 'images/1(61).jpg', 'images/1(64).jpg', 'images/1(74).jpg'],
-//         description: ['In the Kilimani district of Nairobi, close to Royal Nairobi Golf Club, Lovely 3 Bedroom Apartment in Kilimani, Nairobi has a fitness centre and a washing machine. This apartment features free private parking, a lift and free WiFi. The property is non-smoking and is situated 4.5 km from Kenyatta International Conference Centre.',
-
-//         'The 3-bedroom apartment has a living room with a flat-screen TV with streaming services, a fully equipped kitchenette with a microwave and fridge, and 2 bathrooms with walk-in shower. Towels and bed linen are available in the apartment. For added privacy, the accommodation has a private entrance and is protected by full-day security.'],
-//         price: '$120/night'
-       
-//     },
-//     {
-//         name: 'Cozy 2 Bedroom Apartment',
-//         images: ['images/1(74).jpg', 'images/1(61).jpg'],
-//         description: 'A peaceful retreat with ocean views.',
-//         price: '$200/night'
-//     },
-    // {
-    //     name: 'Studio Apartment',
-    //     images: ['images/images(3).jpg', 'images/images(4).jpg'],
-    //     description: 'Cozy and affordable studio in the city center.',
-    //     price: '$80/night'
-    // }
-// ];
-
-function initMap() {
-    // Create a map centered at the first listing's location
-    const map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 14,
-        center: listingsData[0].location
-    });
-
-    // Place a marker at the first listing's location
-    const marker = new google.maps.Marker({
-        position: listingsData[0].location,
-        map: map,
-        title: listingsData[0].name
-    });
-}
-
-// Function to render listings
-function renderListings() {
-    const listingsContainer = document.getElementById('listings');
-    listingsContainer.innerHTML = ''; // Clear existing listings
-
-    listingsData.forEach((listing, index) => {
-        const listingElement = document.createElement('div');
-        listingElement.className = 'col-md-4 mb-4';
-        listingElement.innerHTML = `
-            <div class="card">
-                <img src="${listing.images[0]}" class="card-img-top" alt="${listing.name}">
-                <div class="card-body">
-                    <h5 class="card-title">${listing.name}</h5>
-                    <p class="card-title">${listing.description}</p>
-                    <button type="button" class="btn btn-primary" onclick="showDetails(${index})">View Details</button>
-                </div>
-            </div>
-        `;
-        listingsContainer.appendChild(listingElement);
-    });
-}
-
-// Function to display the details modal
-function showDetails(index) {
-    const selectedListing = listingsData[index];
-    document.getElementById('detailsModalLabel').textContent = selectedListing.name;
-
-    // Update the images in the details modal
-    const modalImages = document.querySelectorAll('#detailsModal .gallery-img');
-    selectedListing.images.forEach((image, idx) => {
-        if (modalImages[idx]) {
-            modalImages[idx].src = image;
-            modalImages[idx].alt = selectedListing.name;
-        }
-    });
-
-    // Handle the "+9 photos" button functionality
-    document.querySelector('.more-photos').onclick = function() {
-        // Populate the gallery modal with additional photos
-        const galleryImages = document.querySelectorAll('#galleryModal .gallery-img');
-        selectedListing.images.forEach((image, idx) => {
-            if (galleryImages[idx]) {
-                galleryImages[idx].src = image;
-                galleryImages[idx].alt = selectedListing.name;
-            }
-        });
-        $('#galleryModal').modal('show');
-    };
-
-    // Set the "Book Now" button to open the booking modal with the B&B name
-    document.getElementById('bookNowButton').onclick = function() {
-        showBookingForm(index);
-    };
-
-    // Show the details modal
-    $('#detailsModal').modal('show');
-}
-
 // Function to display the booking form modal
 function showBookingForm(index) {
     const selectedListing = listingsData[index];
@@ -204,27 +106,14 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', checkVisibility);
 });
 
-function validateCheckoutTime() {
-    const checkoutTimeInput = document.getElementById('modalCheckoutTime');
-    const checkoutTime = checkoutTimeInput.value;
 
-    // Convert checkout time to minutes since midnight for comparison
-    const [hours, minutes] = checkoutTime.split(':');
-    const totalMinutes = parseInt(hours) * 60 + parseInt(minutes);
+$(document).ready(function() {
+ $('.gallery-img').on('click', function() {
+     var src = $(this).attr('src');
+        $('#modalImage').attr('src', src);
+     });
+});
 
-    // 10:00 AM is 600 minutes since midnight
-    const cutoffTime = 600;
-
-    if (totalMinutes > cutoffTime) {
-        // Show the custom Bootstrap modal
-        $('#alertModal').modal('show');
-
-        // Clear the invalid time after the modal is closed
-        $('#alertModal').on('hidden.bs.modal', function () {
-            checkoutTimeInput.value = ''; 
-        });
-    }
-}
 
 // Add event listener for checkout time change
 document.getElementById('modalCheckoutTime').addEventListener('change', validateCheckoutTime);
