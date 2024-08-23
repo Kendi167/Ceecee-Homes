@@ -124,13 +124,42 @@ header h1 {
 }
 
 /* Ensure smooth scaling for listings */
-.card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.listings-section {
+    padding: 50px 0;
+    background-color: #343a40; /* Dark background */
 }
 
-.card:hover {
-    transform: scale(1.05); /* Enlarge by 5% */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for depth effect */
+.listings-title {
+    color: #ffc107; /* Warning text color */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.card-dark {
+    background-color: #343a40; /* Dark background for cards */
+    color: #ffc107; /* Warning text color */
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-dark img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-dark .card-body {
+    padding: 20px;
+}
+
+.card-dark .btn-warning {
+    background-color: #ffc107;
+    border: none;
+}
+
+.card-dark .btn-warning:hover {
+    background-color: #e0a800;
 }
 
 /* Styles for the Hamburger Menu */

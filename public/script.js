@@ -1,27 +1,27 @@
 // Sample data for B&B listings
-const listingsData = [
-    {
-        name: 'Spacious 3 Bedroom Apartment',
-        images: ['images/1(37).jpg', 'images/1(48).jpg', 'images/1(61).jpg', 'images/1(64).jpg', 'images/1(74).jpg'],
-        description: ['In the Kilimani district of Nairobi, close to Royal Nairobi Golf Club, Lovely 3 Bedroom Apartment in Kilimani, Nairobi has a fitness centre and a washing machine. This apartment features free private parking, a lift and free WiFi. The property is non-smoking and is situated 4.5 km from Kenyatta International Conference Centre.',
+// const listingsData = [
+//     {
+//         name: 'Spacious 3 Bedroom Apartment',
+//         images: ['images/1(37).jpg', 'images/1(48).jpg', 'images/1(61).jpg', 'images/1(64).jpg', 'images/1(74).jpg'],
+//         description: ['In the Kilimani district of Nairobi, close to Royal Nairobi Golf Club, Lovely 3 Bedroom Apartment in Kilimani, Nairobi has a fitness centre and a washing machine. This apartment features free private parking, a lift and free WiFi. The property is non-smoking and is situated 4.5 km from Kenyatta International Conference Centre.',
 
-        'The 3-bedroom apartment has a living room with a flat-screen TV with streaming services, a fully equipped kitchenette with a microwave and fridge, and 2 bathrooms with walk-in shower. Towels and bed linen are available in the apartment. For added privacy, the accommodation has a private entrance and is protected by full-day security.'],
-        price: '$120/night'
+//         'The 3-bedroom apartment has a living room with a flat-screen TV with streaming services, a fully equipped kitchenette with a microwave and fridge, and 2 bathrooms with walk-in shower. Towels and bed linen are available in the apartment. For added privacy, the accommodation has a private entrance and is protected by full-day security.'],
+//         price: '$120/night'
        
-    },
-    {
-        name: 'Cozy 2 Bedroom Apartment',
-        images: ['images/1(74).jpg', 'images/1(61).jpg'],
-        description: 'A peaceful retreat with ocean views.',
-        price: '$200/night'
-    },
+//     },
+//     {
+//         name: 'Cozy 2 Bedroom Apartment',
+//         images: ['images/1(74).jpg', 'images/1(61).jpg'],
+//         description: 'A peaceful retreat with ocean views.',
+//         price: '$200/night'
+//     },
     // {
     //     name: 'Studio Apartment',
     //     images: ['images/images(3).jpg', 'images/images(4).jpg'],
     //     description: 'Cozy and affordable studio in the city center.',
     //     price: '$80/night'
     // }
-];
+// ];
 
 function initMap() {
     // Create a map centered at the first listing's location
