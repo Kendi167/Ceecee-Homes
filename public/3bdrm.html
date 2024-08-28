@@ -232,7 +232,7 @@
                     </button>
                 </div>
                 <div class="modal-body bg-dark">
-                    <form id="reservationForm" action="send_reservation.php" method="POST">
+                    <form id="reservationForm" action="/api/send_reservation" method="POST">
                         <div class="form-group">
                             <label for="name">Name (As per your ID/Passport)</label>
                             <input type="text" class="form-control" id="name" required>
@@ -295,6 +295,34 @@
                 $('#modalImage').attr('src', src);
             });
         });
+
+    document.getElementById('reservationForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData);
+
+        fetch('/api/sendEmail', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.message) {
+                alert('Reservation submitted successfully!');
+            } else if (data.error) {
+                alert('Failed to submit reservation');
+            }
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+
     </script>
 </body>
 </html>
